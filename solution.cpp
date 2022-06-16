@@ -35,12 +35,19 @@ Node *Solution::mergeKLists(vector<Node *> &lists)
 
   auto dummyHead = new Node(-1);
 
+  /* push the head of each list into the queue
+     - since we k lists so the queue now has
+       k items
+  */
   for (auto l : lists)
     q.push(l);
 
   auto cur = dummyHead;
   while (!q.empty())
   {
+    /*continue picking the smallest value
+      among the k lists
+    */
     auto next = q.top();
     q.pop();
 
